@@ -1,0 +1,104 @@
+<div class="container mt-4">
+    <div class="form-group">
+      <label for="materiaSelect">Seleccionar Materia:</label>
+      <select
+        id="materiaSelect"
+        class="form-control"
+        [(ngModel)]="selectedMateriaId"
+      >
+        <option *ngFor="let materia of materias" [value]="materia.id">
+          {{ materia.nombre }}
+        </option>
+      </select>
+    </div>
+  
+    <label for="search">Buscar Alumno:</label>
+    <div class="form-group d-flex">
+      <div class="flex-grow-1">
+        <input
+          type="text"
+          id="search"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchTermChange()"
+          placeholder="Escribe para buscar..."
+        />
+        <ul *ngIf="searchResults.length > 0" class="list-group mt-2">
+          <li
+            *ngFor="let result of searchResults"
+            class="list-group-item list-group-item-action"
+            (click)="onSelectResult(result)"
+          >
+            <div>{{ result.apellidos }}, {{ result.nombres }}</div>
+            <small>Legajo: {{ result.legajo }} | DNI: {{ result.dni }}</small>
+          </li>
+        </ul>
+      </div>
+      <button
+        class="btn btn-primary ml-2 align-self-start"
+        [disabled]="!selectedResult"
+        (click)="onAddAlumno()"
+        style="margin-left:5px"
+      >
+        Añadir
+      </button>
+    </div>
+  
+    <div *ngIf="errores.length > 0" class="alert alert-danger mt-3" role="alert">
+      <ul>
+        <li *ngFor="let error of errores">{{ error }}</li>
+      </ul>
+      <button type="button" class="close" (click)="clearErrors()">
+        <span>&times;</span>
+      </button>
+    </div>
+  
+    <table *ngIf="alumnosAgregados.length > 0" class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Apellidos</th>
+          <th>Nombres</th>
+          <th>Legajo</th>
+          <th>1P</th>
+          <th>R1P</th>
+          <th>2P</th>
+          <th>R2P</th>
+          <th>3P</th>
+          <th>R3P</th>
+          <th>4P</th>
+          <th>R4P</th>
+          <th>Promedio</th>
+          <th>% Horas</th>
+          <th>Condición</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnosAgregados; let i = index">
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="onRemoveAlumno(i)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>
+          <td>{{ alumno.apellidos }}</td>
+          <td>{{ alumno.nombres }}</td>
+          <td>{{ alumno.legajo }}</td>
+          <td>{{ alumno.dni }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  <router-outlet></router-outlet>
+  

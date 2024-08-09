@@ -4,11 +4,11 @@ import { Observable, of } from 'rxjs';
 import { catchError, debounceTime, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'cursadas',
+  templateUrl: './cursadas.component.html',
+  styleUrls: ['./cursadas.component.css']
 })
-export class AppComponent implements OnInit {
+export class CursadasComponent implements OnInit {
   searchTerm: string = '';
   searchResults: any[] = [];
   selectedResult: any = null;
@@ -97,3 +97,4 @@ export class AppComponent implements OnInit {
     this.errores = [];
   }
 }
+
