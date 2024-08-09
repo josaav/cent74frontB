@@ -1,6 +1,62 @@
+
+
 <div class="container mt-4">
+
+    <button
+        class="btn btn-primary ml-2 align-self-start"
+        [disabled]="!selectedResult"
+      >
+        Guardar
+      </button>
+
+    <p></p>
+
     <div class="form-group">
-      <label for="materiaSelect">Seleccionar Materia:</label>
+        <label for="materiaSelect">Ciclo lectivo:</label>
+        <select
+          class="form-control"
+        >
+          <option value="1" selected>2024</option>
+        </select>
+      </div>
+
+      <p></p>
+    
+      <div class="form-group">
+        <label for="materiaSelect">Carrera:</label>
+        <select
+          class="form-control"
+        >
+          <option value="1" selected>Enfermería</option>
+        </select>
+      </div>
+
+      <p></p>
+
+      <div class="form-group">
+        <label for="materiaSelect">Plan de estudios:</label>
+        <select
+          class="form-control"
+        >
+          <option value="1" selected>Plan 2015</option>
+        </select>
+      </div>
+
+      <p></p>
+
+      <div class="form-group">
+        <label for="materiaSelect">Docente:</label>
+        <select
+          class="form-control"
+        >
+          <option value="1" selected>Juan Pérez</option>
+        </select>
+      </div>
+
+      <p></p>
+
+    <div class="form-group">
+      <label for="materiaSelect">Seleccionar materia:</label>
       <select
         id="materiaSelect"
         class="form-control"
@@ -11,12 +67,13 @@
         </option>
       </select>
     </div>
-  
-    <label for="search">Buscar Alumno:</label>
+  <p></p>
+    <label for="search">Buscar alumno:</label>
     <div class="form-group d-flex">
       <div class="flex-grow-1">
         <input
-          type="text"
+         autocomplete="off"
+         type="text"
           id="search"
           class="form-control"
           [(ngModel)]="searchTerm"
@@ -77,24 +134,25 @@
         <tr *ngFor="let alumno of alumnosAgregados; let i = index">
           <td>
             <button class="btn btn-danger btn-sm" (click)="onRemoveAlumno(i)">
-              <span class="glyphicon glyphicon-remove"></span>
+              <span class="glyphicon glyphicon-delete"></span>
             </button>
           </td>
           <td>{{ alumno.apellidos }}</td>
           <td>{{ alumno.nombres }}</td>
           <td>{{ alumno.legajo }}</td>
-          <td>{{ alumno.dni }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:60px; border:0; background-color: transparent;"></td>
+          <td><input type="text" style="text-align:center;width:60px; border:0; background-color: transparent;"></td>
+          <td><select><option>Libre</option>
+            <option>Regular</option>
+            <option>Promocionado</option></select></td>
         </tr>
       </tbody>
     </table>
