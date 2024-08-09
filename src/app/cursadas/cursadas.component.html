@@ -4,7 +4,7 @@
 
     <button
         class="btn btn-primary ml-2 align-self-start"
-        [disabled]="!selectedResult"
+        (click)="redirigir()"
       >
         Guardar
       </button>
@@ -158,5 +158,7 @@
     </table>
     
   </div>
+
+  <div style="height:300px;"></div>
   <router-outlet></router-outlet>
   

@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ExamenComponent } from './examen/examen.component';
 import { CursadasComponent } from './cursadas/cursadas.component';
+import { ExitoComponent } from './exito/exito.component';
 
 const routes: Routes = [
   { path: 'cursada/:id', component: CursadasComponent },
   { path: '', redirectTo: '/cursada/1', pathMatch: 'full' }, // Ruta por defecto para pruebas
   { path: 'examen/1', component: ExamenComponent },
+  { path: 'exito', component: ExitoComponent },
   { path: '**', redirectTo: '/'}
 ];
 

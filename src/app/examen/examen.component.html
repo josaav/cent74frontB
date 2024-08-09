@@ -4,7 +4,7 @@
 
     <button
         class="btn btn-primary ml-2 align-self-start"
-        [disabled]="!selectedResult"
+        (click)="redirigir()"
       >
         Guardar
       </button>
@@ -49,6 +49,7 @@
 <div class="form-group d-flex">
     <div class="flex-grow-1">
       <input
+        autocomplete="off"
         type="text"
         id="searchDocente"
         class="form-control"
@@ -161,16 +162,10 @@
           <th>Apellidos</th>
           <th>Nombres</th>
           <th>Legajo</th>
-          <th>1P</th>
-          <th>R1P</th>
-          <th>2P</th>
-          <th>R2P</th>
-          <th>3P</th>
-          <th>R3P</th>
-          <th>4P</th>
-          <th>R4P</th>
-          <th>Promedio</th>
-          <th>% Horas</th>
+          <th>Permiso</th>
+          <th>Oral</th>
+          <th>Escrito</th>
+          <th>Calificación definitiva</th>
           <th>Condición</th>
         </tr>
       </thead>
@@ -184,23 +179,18 @@
           <td>{{ alumno.apellidos }}</td>
           <td>{{ alumno.nombres }}</td>
           <td>{{ alumno.legajo }}</td>
+          <td><input type="text" style="text-align:center;width:70px; border:0; background-color: transparent;"></td>
           <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
           <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
           <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:30px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:60px; border:0; background-color: transparent;"></td>
-          <td><input type="text" style="text-align:center;width:60px; border:0; background-color: transparent;"></td>
-          <td><select><option>Libre</option>
-            <option>Regular</option>
-            <option>Promocionado</option></select></td>
+          <td><select><option>Ausente</option>
+            <option>Aprobado</option>
+            <option>Desaprobado</option></select></td>
         </tr>
       </tbody>
     </table>
     
   </div>
+<div style="height:300px;"></div>
   <router-outlet></router-outlet>
   

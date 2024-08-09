@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ExamenComponent } from './examen/examen.component';
 import { CursadasComponent } from './cursadas/cursadas.component';
+import { ExitoComponent } from './exito/exito.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExamenComponent,
-    CursadasComponent
+    CursadasComponent,
+    ExitoComponent
   ],
   imports: [
     BrowserModule,

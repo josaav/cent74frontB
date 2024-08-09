@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, debounceTime, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'examen',
@@ -23,7 +24,7 @@ export class ExamenComponent implements OnInit {
   selectedResultDocente: any = null;
   docentesAgregados: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.fetchMaterias().subscribe(materias => {
@@ -137,6 +138,10 @@ export class ExamenComponent implements OnInit {
 
   onRemoveDocente(index: number) {
     this.docentesAgregados.splice(index, 1);
+  }
+
+  redirigir() {
+    this.router.navigate(['/exito']);
   }
 
   clearErrors() {
